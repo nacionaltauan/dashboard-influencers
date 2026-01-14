@@ -682,9 +682,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // 🚨 TESTE LOCALHOST: Ignorando variável de ambiente temporariamente
-        const API_URL = "http://localhost:4000/brasilseg/influencers"
-        console.log("🚨 TESTE LOCALHOST INICIADO: ", API_URL)
+        const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:4000"
+        const API_URL = `${baseUrl}/brasilseg/influencers`
+        console.log("🔍 URL sendo requisitada:", API_URL)
         
         const response = await fetch(API_URL)
         
