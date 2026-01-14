@@ -535,24 +535,10 @@
 /* Card Grid específico para campanhas - linha única no desktop */
 .campaignsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
   margin-bottom: 2rem;
-}
-
-@media (min-width: 768px) {
-  .campaignsGrid {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    overflow: visible;
-  }
-}
-
-@media (min-width: 1200px) {
-  .campaignsGrid {
-    gap: 2rem;
-  }
 }
 
 /* Campaign Card Styles */
@@ -564,16 +550,9 @@
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   border: 2px solid transparent;
+  width: 100%;
   min-width: 0; /* Para permitir que o texto seja truncado se necessário */
   word-wrap: break-word; /* Quebra palavras longas */
-}
-
-@media (min-width: 768px) {
-  .campaignCard {
-    flex: 1;
-    min-width: 200px;
-    max-width: none;
-  }
 }
 
 .campaignCard:hover {
