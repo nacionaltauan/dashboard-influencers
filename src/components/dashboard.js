@@ -682,7 +682,20 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/brasilseg/influencers`)
+        const apiUrl = `${process.env.REACT_APP_API_URL}/brasilseg/influencers`
+        console.log("🔍 URL sendo requisitada:", apiUrl)
+        
+        const response = await fetch(apiUrl)
+        
+        if (!response.ok) {
+          const errorText = await response.text()
+          console.error("❌ Erro na resposta da API:")
+          console.error("Status Code:", response.status)
+          console.error("Status Text:", response.statusText)
+          console.error("Corpo da resposta:", errorText)
+          throw new Error(`Erro ${response.status}: ${response.statusText}`)
+        }
+        
         const result = await response.json()
 
         if (result.success && result.data && result.data.values) {
